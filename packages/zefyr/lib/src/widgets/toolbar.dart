@@ -250,7 +250,8 @@ class ZefyrToolbarState extends State<ZefyrToolbar>
 
   List<Widget> _buildButtons(BuildContext context) {
     final buttons = <Widget>[
-      if (editor.imageDelegate != null) ImageButton(),
+      // if (editor.imageDelegate != null) ImageButton(),
+      buildButton(context, ZefyrToolbarAction.image),
       buildButton(context, ZefyrToolbarAction.bold),
       buildButton(context, ZefyrToolbarAction.italic),
       // LinkButton(),
@@ -259,7 +260,7 @@ class ZefyrToolbarState extends State<ZefyrToolbar>
       // buildButton(context, ZefyrToolbarAction.numberList),
       buildButton(context, ZefyrToolbarAction.quote),
       // buildButton(context, ZefyrToolbarAction.code),
-      buildButton(context, ZefyrToolbarAction.horizontalRule),
+      // buildButton(context, ZefyrToolbarAction.horizontalRule),
     ];
     return buttons;
   }
