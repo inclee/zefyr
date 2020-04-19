@@ -251,7 +251,7 @@ class ZefyrToolbarState extends State<ZefyrToolbar>
   List<Widget> _buildButtons(BuildContext context) {
     final buttons = <Widget>[
       // if (editor.imageDelegate != null) ImageButton(),
-      buildButton(context, ZefyrToolbarAction.image),
+      buildButton(context, ZefyrToolbarAction.image,onPressed: _pickFromGallery),
       buildButton(context, ZefyrToolbarAction.bold),
       buildButton(context, ZefyrToolbarAction.italic),
       // LinkButton(),
@@ -263,6 +263,14 @@ class ZefyrToolbarState extends State<ZefyrToolbar>
       // buildButton(context, ZefyrToolbarAction.horizontalRule),
     ];
     return buttons;
+  }
+    void _pickFromGallery() async {
+    final editor = ZefyrToolbar.of(context).editor;
+    final image = await editor.imageDelegate
+        .pickImage(editor.imageDelegate.gallerySource);
+    if (image != null) {
+      editor.formatSelection(NotusAttribute.embed.image(image));
+    }
   }
 }
 
