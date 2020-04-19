@@ -39,16 +39,16 @@ enum ZefyrToolbarAction {
 final kZefyrToolbarAttributeActions = <ZefyrToolbarAction, NotusAttributeKey>{
   ZefyrToolbarAction.bold: NotusAttribute.bold,
   ZefyrToolbarAction.italic: NotusAttribute.italic,
-  ZefyrToolbarAction.link: NotusAttribute.link,
+  // ZefyrToolbarAction.link: NotusAttribute.link,
   ZefyrToolbarAction.heading: NotusAttribute.heading,
   ZefyrToolbarAction.headingLevel1: NotusAttribute.heading.level1,
   ZefyrToolbarAction.headingLevel2: NotusAttribute.heading.level2,
   ZefyrToolbarAction.headingLevel3: NotusAttribute.heading.level3,
   ZefyrToolbarAction.bulletList: NotusAttribute.block.bulletList,
   ZefyrToolbarAction.numberList: NotusAttribute.block.numberList,
-  ZefyrToolbarAction.code: NotusAttribute.block.code,
+  // ZefyrToolbarAction.code: NotusAttribute.block.code,
   ZefyrToolbarAction.quote: NotusAttribute.block.quote,
-  ZefyrToolbarAction.horizontalRule: NotusAttribute.embed.horizontalRule,
+  // ZefyrToolbarAction.horizontalRule: NotusAttribute.embed.horizontalRule,
 };
 
 /// Allows customizing appearance of [ZefyrToolbar].
@@ -250,16 +250,16 @@ class ZefyrToolbarState extends State<ZefyrToolbar>
 
   List<Widget> _buildButtons(BuildContext context) {
     final buttons = <Widget>[
+      if (editor.imageDelegate != null) ImageButton(),
       buildButton(context, ZefyrToolbarAction.bold),
       buildButton(context, ZefyrToolbarAction.italic),
-      LinkButton(),
+      // LinkButton(),
       HeadingButton(),
       buildButton(context, ZefyrToolbarAction.bulletList),
-      buildButton(context, ZefyrToolbarAction.numberList),
+      // buildButton(context, ZefyrToolbarAction.numberList),
       buildButton(context, ZefyrToolbarAction.quote),
-      buildButton(context, ZefyrToolbarAction.code),
+      // buildButton(context, ZefyrToolbarAction.code),
       buildButton(context, ZefyrToolbarAction.horizontalRule),
-      if (editor.imageDelegate != null) ImageButton(),
     ];
     return buttons;
   }
